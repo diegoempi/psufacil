@@ -1,0 +1,4 @@
+services:
+    global_functions:
+        class: PsumateBundle\Services\GlobalFunctions
+        arguments: ['@service_container']
