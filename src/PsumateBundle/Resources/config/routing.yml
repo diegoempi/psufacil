@@ -1,11 +1,11 @@
 obt_colegio:
-    path:     /obtener/colegio
+    path:     /obt/colegio/{comuna}
     defaults: { _controller: PsumateBundle:Default:ObtenerColegio  }
 
 obt_region:
-    path:     /obtener/region
+    path:     /obt/region
     defaults: { _controller: PsumateBundle:Default:ObtenerRegion  }
 
 obt_comuna:
-    path:     /obtener/comuna
+    path:     /obt/comuna/{region}
     defaults: { _controller: PsumateBundle:Default:ObtenerComuna  }

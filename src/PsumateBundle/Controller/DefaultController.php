@@ -1,24 +1,32 @@
 <?php
 namespace PsumateBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManager;
+
+use PsumateBundle\Services\GlobalFunctions;
 
 class DefaultController extends Controller
 {
-    public function obtenerColegioAction()
+    public function obtenerColegioAction( Request $request )
     {
-		$em = $this->getDoctrine()->getManager();      
-		$return = array();
-        exit;
+        //recibe comuna
+        $GlobalFunctions    = $this->get(GlobalFunctions::class);
+        $i                  = 1;
+        $arr_comunas        = array();
+        $comuna             = $request->get('comuna');
+        $em                 = $this->getDoctrine()->getManager();
 
-		//$idGenTemporadaVersion = $this->get('global_functions')->getTemporadaVersion();
+        $colegios           = $em->getRepository("PsumateBundle:ColegiosDb")
+                                ->findBy(array('codComuna' => $comuna ));
 
-		if($row = $em->getRepository('CampoSeguroBundle:genSector')->obtenerLineas(array('idGenTemporadaVersion' => $idGenTemporadaVersion))){
-			$return = $this->get('global_functions')->classToJson($row);
-		}
-		return new JsonResponse($return);
-
-        //return $this->render('PsumateBundle:Default:index.html.twig');
+        return $GlobalFunctions->json( array(
+            'code' => '200',
+            'status' => 'success',
+            'data'=> $colegios) );
+		
     }
 
     public function obtenerRegionAction()
@@ -27,10 +35,29 @@ class DefaultController extends Controller
         //return $this->render('PsumateBundle:Default:index.html.twig');
     }
 
-    public function obtenerComunaAction()
+    public function obtenerComunaAction( Request $request )
     {
-        dump('obtener comuna'); die();
-        //return $this->render('PsumateBundle:Default:index.html.twig');
+        //recibe region para retornar comuna
+        $GlobalFunctions    = $this->get(GlobalFunctions::class);
+        $i                  = 1;
+        $arr_comunas        = array();
+        $region             = $request->get('region');
+        $em                 = $this->getDoctrine()->getManager();
+        
+        $comunas            = $em->getRepository("PsumateBundle:ColegiosDb")
+                                ->findBy(array('codRegion' => $region ));
+
+        foreach ($comunas as $value) {
+            $arr_comunas[$i]['id']           = $value->getCodComuna();
+            $arr_comunas[$i]['nom_comuna']   = $value->getNomComuna();
+            $i++;
+        }
+
+        return $GlobalFunctions->json( array(
+            'code' => '200',
+            'status' => 'success',
+            'data'=> $arr_comunas) );
+
     }    
 
 }

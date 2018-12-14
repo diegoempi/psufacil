@@ -1,27 +1,25 @@
 <?php
 namespace PsumateBundle\Services;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 
 class GlobalFunctions
 {
 
-    public function __construct() 
+    public function __construct( $manager ) 
     {
-	 
+		$this->manager = $manager;
 	}
     
-    public function classToJson($rows)
+    public function json( $data )
     {
-        $encoders = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers = array(new ObjectNormalizer());
-        $serializer = new Serializer($normalizers, $encoders);
-        $rows = $serializer->normalize($rows, 'json');
-        return $rows;
+        $normalizers    = array( new \Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer());
+        $encoders       = array("json" => new \Symfony\Component\Serializer\Encoder\JsonEncoder());
+        $serializer     = new \Symfony\Component\Serializer\Serializer( $normalizers, $encoders );
+        $json = $serializer->serialize($data, 'json');
+ 
+        $response = new \Symfony\Component\HttpFoundation\Response();
+        $response->setContent( $json );
+        $response->headers->set('Content-Type', 'application/json');
+        return $response;
     }
 
     public function esRut($r = false, $format = null){
