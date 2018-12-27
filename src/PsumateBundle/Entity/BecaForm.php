@@ -25,86 +25,114 @@ class BecaForm
     /**
      * @var string
      *
-     * @ORM\Column(name="nombres-al", type="string", nullable=true)
+     * @ORM\Column(name="al_nombres", type="string", nullable=true)
      */
-    private $nombresAl;
+    private $alNombres;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido1-al", type="string", nullable=true)
+     * @ORM\Column(name="al_ape_mat", type="string", nullable=true)
      */
-    private $apellido1Al;
+    private $alApeMat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido2-al", type="string", nullable=true)
+     * @ORM\Column(name="al_ape_pat", type="string", nullable=true)
      */
-    private $apellido2Al;
+    private $alApePat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechanac-al", type="date", nullable=true)
+     * @ORM\Column(name="al_nacimiento", type="date", nullable=true)
      */
-    private $fechanacAl;
+    private $alNacimiento;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="correo-al", type="string", nullable=true)
+     * @ORM\Column(name="al_email", type="string", nullable=true)
      */
-    private $correoAl;
+    private $alEmail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono-al", type="string", nullable=true)
+     * @ORM\Column(name="al_telefono", type="string", nullable=true)
      */
-    private $telefonoAl;
+    private $alTelefono;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rut-al", type="string", nullable=true)
+     * @ORM\Column(name="al_rut", type="string", nullable=true)
      */
-    private $rutAl;
+    private $alRut;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nombres-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_nombres", type="string", nullable=true)
      */
-    private $nombresAp;
+    private $apNombres;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido1-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_ape_mat", type="string", nullable=true)
      */
-    private $apellido1Ap;
+    private $apApeMat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido2-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_ape_pat", type="string", nullable=true)
      */
-    private $apellido2Ap;
+    private $apApePat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="correo-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_email", type="string", nullable=true)
      */
-    private $correoAp;
+    private $apEmail;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="telefono-ap", type="integer", nullable=true)
+     * @ORM\Column(name="ap_telefono", type="integer", nullable=true)
      */
-    private $telefonoAp;
+    private $apTelefono;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="al_comuna", type="integer", nullable=true)
+     */
+    private $alComuna;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="al_region", type="integer", nullable=true)
+     */
+    private $alRegion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="razones_beca", type="text", nullable=true)
+     */
+    private $razonesBeca;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="al_colegio", type="integer", nullable=true)
+     */
+    private $alColegio;
 
 
 
@@ -119,290 +147,386 @@ class BecaForm
     }
 
     /**
-     * Set nombresAl
+     * Set alNombres
      *
-     * @param string $nombresAl
+     * @param string $alNombres
      *
      * @return BecaForm
      */
-    public function setNombresAl($nombresAl)
+    public function setAlNombres($alNombres)
     {
-        $this->nombresAl = $nombresAl;
+        $this->alNombres = $alNombres;
 
         return $this;
     }
 
     /**
-     * Get nombresAl
+     * Get alNombres
      *
      * @return string
      */
-    public function getNombresAl()
+    public function getAlNombres()
     {
-        return $this->nombresAl;
+        return $this->alNombres;
     }
 
     /**
-     * Set apellido1Al
+     * Set alApeMat
      *
-     * @param string $apellido1Al
+     * @param string $alApeMat
      *
      * @return BecaForm
      */
-    public function setApellido1Al($apellido1Al)
+    public function setAlApeMat($alApeMat)
     {
-        $this->apellido1Al = $apellido1Al;
+        $this->alApeMat = $alApeMat;
 
         return $this;
     }
 
     /**
-     * Get apellido1Al
+     * Get alApeMat
      *
      * @return string
      */
-    public function getApellido1Al()
+    public function getAlApeMat()
     {
-        return $this->apellido1Al;
+        return $this->alApeMat;
     }
 
     /**
-     * Set apellido2Al
+     * Set alApePat
      *
-     * @param string $apellido2Al
+     * @param string $alApePat
      *
      * @return BecaForm
      */
-    public function setApellido2Al($apellido2Al)
+    public function setAlApePat($alApePat)
     {
-        $this->apellido2Al = $apellido2Al;
+        $this->alApePat = $alApePat;
 
         return $this;
     }
 
     /**
-     * Get apellido2Al
+     * Get alApePat
      *
      * @return string
      */
-    public function getApellido2Al()
+    public function getAlApePat()
     {
-        return $this->apellido2Al;
+        return $this->alApePat;
     }
 
     /**
-     * Set fechanacAl
+     * Set alNacimiento
      *
-     * @param \DateTime $fechanacAl
+     * @param \DateTime $alNacimiento
      *
      * @return BecaForm
      */
-    public function setFechanacAl($fechanacAl)
+    public function setAlNacimiento($alNacimiento)
     {
-        $this->fechanacAl = $fechanacAl;
+        $this->alNacimiento = $alNacimiento;
 
         return $this;
     }
 
     /**
-     * Get fechanacAl
+     * Get alNacimiento
      *
      * @return \DateTime
      */
-    public function getFechanacAl()
+    public function getAlNacimiento()
     {
-        return $this->fechanacAl;
+        return $this->alNacimiento;
     }
 
     /**
-     * Set correoAl
+     * Set alEmail
      *
-     * @param string $correoAl
+     * @param string $alEmail
      *
      * @return BecaForm
      */
-    public function setCorreoAl($correoAl)
+    public function setAlEmail($alEmail)
     {
-        $this->correoAl = $correoAl;
+        $this->alEmail = $alEmail;
 
         return $this;
     }
 
     /**
-     * Get correoAl
+     * Get alEmail
      *
      * @return string
      */
-    public function getCorreoAl()
+    public function getAlEmail()
     {
-        return $this->correoAl;
+        return $this->alEmail;
     }
 
     /**
-     * Set telefonoAl
+     * Set alTelefono
      *
-     * @param string $telefonoAl
+     * @param string $alTelefono
      *
      * @return BecaForm
      */
-    public function setTelefonoAl($telefonoAl)
+    public function setAlTelefono($alTelefono)
     {
-        $this->telefonoAl = $telefonoAl;
+        $this->alTelefono = $alTelefono;
 
         return $this;
     }
 
     /**
-     * Get telefonoAl
+     * Get alTelefono
      *
      * @return string
      */
-    public function getTelefonoAl()
+    public function getAlTelefono()
     {
-        return $this->telefonoAl;
+        return $this->alTelefono;
     }
 
     /**
-     * Set rutAl
+     * Set alRut
      *
-     * @param string $rutAl
+     * @param string $alRut
      *
      * @return BecaForm
      */
-    public function setRutAl($rutAl)
+    public function setAlRut($alRut)
     {
-        $this->rutAl = $rutAl;
+        $this->alRut = $alRut;
 
         return $this;
     }
 
     /**
-     * Get rutAl
+     * Get alRut
      *
      * @return string
      */
-    public function getRutAl()
+    public function getAlRut()
     {
-        return $this->rutAl;
+        return $this->alRut;
     }
 
     /**
-     * Set nombresAp
+     * Set apNombres
      *
-     * @param string $nombresAp
+     * @param string $apNombres
      *
      * @return BecaForm
      */
-    public function setNombresAp($nombresAp)
+    public function setApNombres($apNombres)
     {
-        $this->nombresAp = $nombresAp;
+        $this->apNombres = $apNombres;
 
         return $this;
     }
 
     /**
-     * Get nombresAp
+     * Get apNombres
      *
      * @return string
      */
-    public function getNombresAp()
+    public function getApNombres()
     {
-        return $this->nombresAp;
+        return $this->apNombres;
     }
 
     /**
-     * Set apellido1Ap
+     * Set apApeMat
      *
-     * @param string $apellido1Ap
+     * @param string $apApeMat
      *
      * @return BecaForm
      */
-    public function setApellido1Ap($apellido1Ap)
+    public function setApApeMat($apApeMat)
     {
-        $this->apellido1Ap = $apellido1Ap;
+        $this->apApeMat = $apApeMat;
 
         return $this;
     }
 
     /**
-     * Get apellido1Ap
+     * Get apApeMat
      *
      * @return string
      */
-    public function getApellido1Ap()
+    public function getApApeMat()
     {
-        return $this->apellido1Ap;
+        return $this->apApeMat;
     }
 
     /**
-     * Set apellido2Ap
+     * Set apApePat
      *
-     * @param string $apellido2Ap
+     * @param string $apApePat
      *
      * @return BecaForm
      */
-    public function setApellido2Ap($apellido2Ap)
+    public function setApApePat($apApePat)
     {
-        $this->apellido2Ap = $apellido2Ap;
+        $this->apApePat = $apApePat;
 
         return $this;
     }
 
     /**
-     * Get apellido2Ap
+     * Get apApePat
      *
      * @return string
      */
-    public function getApellido2Ap()
+    public function getApApePat()
     {
-        return $this->apellido2Ap;
+        return $this->apApePat;
     }
 
     /**
-     * Set correoAp
+     * Set apEmail
      *
-     * @param string $correoAp
+     * @param string $apEmail
      *
      * @return BecaForm
      */
-    public function setCorreoAp($correoAp)
+    public function setApEmail($apEmail)
     {
-        $this->correoAp = $correoAp;
+        $this->apEmail = $apEmail;
 
         return $this;
     }
 
     /**
-     * Get correoAp
+     * Get apEmail
      *
      * @return string
      */
-    public function getCorreoAp()
+    public function getApEmail()
     {
-        return $this->correoAp;
+        return $this->apEmail;
     }
 
     /**
-     * Set telefonoAp
+     * Set apTelefono
      *
-     * @param integer $telefonoAp
+     * @param integer $apTelefono
      *
      * @return BecaForm
      */
-    public function setTelefonoAp($telefonoAp)
+    public function setApTelefono($apTelefono)
     {
-        $this->telefonoAp = $telefonoAp;
+        $this->apTelefono = $apTelefono;
 
         return $this;
     }
 
     /**
-     * Get telefonoAp
+     * Get apTelefono
      *
      * @return integer
      */
-    public function getTelefonoAp()
+    public function getApTelefono()
     {
-        return $this->telefonoAp;
+        return $this->apTelefono;
+    }
+
+    /**
+     * Set alComuna
+     *
+     * @param integer $alComuna
+     *
+     * @return BecaForm
+     */
+    public function setAlComuna($alComuna)
+    {
+        $this->alComuna = $alComuna;
+
+        return $this;
+    }
+
+    /**
+     * Get alComuna
+     *
+     * @return integer
+     */
+    public function getAlComuna()
+    {
+        return $this->alComuna;
+    }
+
+    /**
+     * Set alRegion
+     *
+     * @param integer $alRegion
+     *
+     * @return BecaForm
+     */
+    public function setAlRegion($alRegion)
+    {
+        $this->alRegion = $alRegion;
+
+        return $this;
+    }
+
+    /**
+     * Get alRegion
+     *
+     * @return integer
+     */
+    public function getAlRegion()
+    {
+        return $this->alRegion;
+    }
+
+    /**
+     * Set razonesBeca
+     *
+     * @param string $razonesBeca
+     *
+     * @return BecaForm
+     */
+    public function setRazonesBeca($razonesBeca)
+    {
+        $this->razonesBeca = $razonesBeca;
+
+        return $this;
+    }
+
+    /**
+     * Get razonesBeca
+     *
+     * @return string
+     */
+    public function getRazonesBeca()
+    {
+        return $this->razonesBeca;
+    }
+
+    /**
+     * Set alColegio
+     *
+     * @param integer $alColegio
+     *
+     * @return BecaForm
+     */
+    public function setAlColegio($alColegio)
+    {
+        $this->alColegio = $alColegio;
+
+        return $this;
+    }
+
+    /**
+     * Get alColegio
+     *
+     * @return integer
+     */
+    public function getAlColegio()
+    {
+        return $this->alColegio;
     }
 }

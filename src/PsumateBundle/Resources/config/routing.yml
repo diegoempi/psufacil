@@ -9,3 +9,11 @@ obt_region:
 obt_comuna:
     path:     /obt/comuna/{region}
     defaults: { _controller: PsumateBundle:Default:ObtenerComuna  }
+
+ing_beca:
+    path:     /ing/beca
+    defaults: { _controller: PsumateBundle:Default:IngBeca  }
+
+ing_info:
+    path:     /ing/info
+    defaults: { _controller: PsumateBundle:Default:IngInfo  }

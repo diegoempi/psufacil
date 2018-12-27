@@ -2,3 +2,8 @@ services:
     global_functions:
         class: PsumateBundle\Services\GlobalFunctions
         arguments: ['@service_container']
+
+    fix_authentication_header_listener:
+        class: PsumateBundle\Security\AuthenticationHeaderListener
+        tags:
+        - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 255 }

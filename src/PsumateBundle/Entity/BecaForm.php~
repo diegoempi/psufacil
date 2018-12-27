@@ -25,86 +25,114 @@ class BecaForm
     /**
      * @var string
      *
-     * @ORM\Column(name="nombres-al", type="string", nullable=true)
+     * @ORM\Column(name="al_nombres", type="string", nullable=true)
      */
-    private $nombresAl;
+    private $alNombres;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido1-al", type="string", nullable=true)
+     * @ORM\Column(name="al_ape_mat", type="string", nullable=true)
      */
-    private $apellido1Al;
+    private $alApeMat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido2-al", type="string", nullable=true)
+     * @ORM\Column(name="al_ape_pat", type="string", nullable=true)
      */
-    private $apellido2Al;
+    private $alApePat;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fechanac-al", type="date", nullable=true)
+     * @ORM\Column(name="al_nacimiento", type="date", nullable=true)
      */
-    private $fechanacAl;
+    private $alNacimiento;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="correo-al", type="string", nullable=true)
+     * @ORM\Column(name="al_email", type="string", nullable=true)
      */
-    private $correoAl;
+    private $alEmail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono-al", type="string", nullable=true)
+     * @ORM\Column(name="al_telefono", type="string", nullable=true)
      */
-    private $telefonoAl;
+    private $alTelefono;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="rut-al", type="string", nullable=true)
+     * @ORM\Column(name="al_rut", type="string", nullable=true)
      */
-    private $rutAl;
+    private $alRut;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nombres-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_nombres", type="string", nullable=true)
      */
-    private $nombresAp;
+    private $apNombres;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido1-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_ape_mat", type="string", nullable=true)
      */
-    private $apellido1Ap;
+    private $apApeMat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="apellido2-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_ape_pat", type="string", nullable=true)
      */
-    private $apellido2Ap;
+    private $apApePat;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="correo-ap", type="string", nullable=true)
+     * @ORM\Column(name="ap_email", type="string", nullable=true)
      */
-    private $correoAp;
+    private $apEmail;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="telefono-ap", type="integer", nullable=true)
+     * @ORM\Column(name="ap_telefono", type="integer", nullable=true)
      */
-    private $telefonoAp;
+    private $apTelefono;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="al_comuna", type="integer", nullable=true)
+     */
+    private $alComuna;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="al_region", type="integer", nullable=true)
+     */
+    private $alRegion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="razones_beca", type="text", nullable=true)
+     */
+    private $razonesBeca;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="al_colegio", type="integer", nullable=true)
+     */
+    private $alColegio;
 
 
 }
