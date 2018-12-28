@@ -103,8 +103,10 @@ class DefaultController extends Controller
     {
         //recibe data del formulario
         $GlobalFunctions        = $this->get(GlobalFunctions::class);
-        $jsonRequest            = $request->get('data');
+        //$jsonRequest          = $request->query->get('data');//$request->get('data');
+        $jsonRequest            = $request->getContent();
         $data                   = null;      
+       
 
         if($jsonRequest){
 
@@ -162,7 +164,7 @@ class DefaultController extends Controller
                 $beca->setAlapemat( $alApeMat );
                 $beca->setAlapepat( $alApePat );
                                 
-                $alNacimiento =  \DateTime::createFromFormat('d-m-Y', $alNacimiento);
+                $alNacimiento =  \DateTime::createFromFormat('Y-m-d', $alNacimiento);
 
                 $beca->setAlnacimiento( $alNacimiento );
                 $beca->setAlemail( $alEmail );
@@ -207,9 +209,10 @@ class DefaultController extends Controller
     {
         //recibe data del formulario
         $GlobalFunctions        = $this->get(GlobalFunctions::class);
-        $jsonRequest            = $request->get('data');
+        //$jsonRequest            = $request->get('data');
+        $jsonRequest            = $request->getContent();
         $data                   = null;
- 
+
         if($jsonRequest){
  
             $params            = json_decode( $jsonRequest );
