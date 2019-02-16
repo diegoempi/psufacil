@@ -3,6 +3,10 @@ services:
         class: PsumateBundle\Services\GlobalFunctions
         arguments: ['@service_container']
 
+    user_services:
+        class: PsumateBundle\Services\JwtAuth
+        arguments: ['@service_container']
+
     fix_authentication_header_listener:
         class: PsumateBundle\Security\AuthenticationHeaderListener
         tags:

@@ -17,3 +17,39 @@ ing_beca:
 ing_info:
     path:     /ing/info
     defaults: { _controller: PsumateBundle:Default:IngInfo  }
+
+login:
+    path:     /login
+    defaults: { _controller: PsumateBundle:User:login  }
+
+register:
+    path:     /register
+    defaults: { _controller: PsumateBundle:User:register  }
+
+obt_unidades:
+    path:     /obt/unidades
+    defaults: { _controller: PsumateBundle:Videos:ObtenerUnidades  }
+
+obt_capitulos:
+    path:     /obt/capitulos
+    defaults: { _controller: PsumateBundle:Videos:ObtenerCapitulos  }
+
+obt_todos_capitulos:
+    path:     /obt/capitulos/todos
+    defaults: { _controller: PsumateBundle:Videos:ObtenerTodosCapitulos  }
+
+obt_videos:
+    path:     /obt/videos
+    defaults: { _controller: PsumateBundle:Videos:ObtenerVideos  }    
+
+ing_unidades:
+    path:     /ing/unidades
+    defaults: { _controller: PsumateBundle:Videos:IngresarUnidades  }    
+
+ing_capitulos:
+    path:     /ing/capitulos
+    defaults: { _controller: PsumateBundle:Videos:IngresarCapitulos  }   
+
+ing_videos:
+    path:     /ing/videos
+    defaults: { _controller: PsumateBundle:Videos:IngresarVideos  }   

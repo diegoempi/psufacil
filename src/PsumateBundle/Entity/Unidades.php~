@@ -1,0 +1,55 @@
+<?php
+
+namespace PsumateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Unidades
+ *
+ * @ORM\Table(name="unidades")
+ * @ORM\Entity
+ */
+class Unidades
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="unidades_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=300, nullable=false)
+     */
+    private $url;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
+     */
+    private $fechaDeCreacion;
+
+
+}
+

@@ -1,0 +1,62 @@
+<?php
+
+namespace PsumateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Capitulos
+ *
+ * @ORM\Table(name="capitulos")
+ * @ORM\Entity
+ */
+class Capitulos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="capitulos_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_unidades", type="integer", nullable=false)
+     */
+    private $idUnidades;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=true)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", nullable=true)
+     */
+    private $url;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=true)
+     */
+    private $fechaDeCreacion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     */
+    private $descripcion;
+
+
+}
+

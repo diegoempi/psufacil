@@ -1,0 +1,83 @@
+<?php
+
+namespace PsumateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Videos
+ *
+ * @ORM\Table(name="videos")
+ * @ORM\Entity
+ */
+class Videos
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="videos_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=250, nullable=false)
+     */
+    private $nombre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descripcion", type="text", nullable=false)
+     */
+    private $descripcion;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url", type="string", length=200, nullable=false)
+     */
+    private $url;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_registro", type="date", nullable=false)
+     */
+    private $fechaDeRegistro;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_material", type="integer", nullable=false)
+     */
+    private $idMaterial;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_capitulo", type="integer", nullable=false)
+     */
+    private $idCapitulo;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_unidad", type="integer", nullable=false)
+     */
+    private $idUnidad;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="url_imagen", type="string", nullable=false)
+     */
+    private $urlImagen;
+
+
+}
+
