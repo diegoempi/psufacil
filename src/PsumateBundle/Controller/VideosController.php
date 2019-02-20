@@ -66,7 +66,16 @@ class VideosController extends Controller
 
         if( $authCheck ){
             $em                 = $this->getDoctrine()->getManager();
-            $dql                = "SELECT a.id, a.nombre, a.url, a.descripcion FROM PsumateBundle:Capitulos a WHERE a.idUnidades = $unidad GROUP BY a.id ORDER BY a.id ASC";
+
+            if( $unidad ){
+                $dql                = "SELECT a.id, a.nombre, a.url, a.descripcion FROM PsumateBundle:Capitulos a WHERE a.idUnidades = $unidad GROUP BY a.id ORDER BY a.id ASC";    
+            }else{
+                $dql                = "SELECT a.id, a.nombre, a.url, a.descripcion 
+                                        FROM PsumateBundle:Capitulos a                                       
+                                        GROUP BY a.id ORDER BY a.id ASC";
+            }
+
+            
             $capitulosObject    = $em->createQuery($dql);
             $arr_capitulos      = $capitulosObject->getResult();
            
@@ -135,16 +144,57 @@ class VideosController extends Controller
 
     public function obtenerVideosAction( Request $request ){
         
-        $GlobalFunctions    = $this->get(GlobalFunctions::class);
-        $jwt_auth           = $this->get( JwtAuth::class);
-        $token              = $request->get( 'authorization', null ); 
-        $capitulo           = $request->get( 'capitulo', null ); 
+        $GlobalFunctions    = $this->get( GlobalFunctions::class );
+        $jwt_auth           = $this->get( JwtAuth::class );
+        $token              = $request->get( 'authorization', null );
+        $capitulo           = $request->get( 'capitulo', null );
         $authCheck          = $jwt_auth->checkToken( $token );
         $arr_videos         = array();
 
         if( $authCheck ){
+
             $em              = $this->getDoctrine()->getManager();
-            $dql             = "SELECT a.id, a.nombre FROM PsumateBundle:Videos a WHERE a.idCapitulo = $capitulo GROUP BY a.id ORDER BY a.id ASC";
+            $dql             = "SELECT a.id, a.nombre, a.descripcion, a.url, a.urlImagen FROM PsumateBundle:Videos a WHERE a.idCapitulo = $capitulo GROUP BY a.id ORDER BY a.id ASC";
+            $videosObject    = $em->createQuery($dql);
+            $arr_videos      = $videosObject->getResult();
+           
+            if( !empty($arr_videos) ){
+                $data = array(
+                    'code'      => '200',
+                    'status'    => 'success',
+                    'msj'       => 'se han devuelto los videos correctamente',
+                    'data'      => $arr_videos );
+            }else{
+                $data = array(
+                    'code'      => '200',
+                    'status'    => 'error',
+                    'msj'       => 'No se encuentran capitulos disponibles',
+                    'data'      => null );
+            }
+        }else{
+            $data = array(
+                'code'      => '200',
+                'status'    => 'token_invalid',
+                'msj'       => 'token invalido',
+                'data'      => null );  
+        }
+        return $GlobalFunctions->json( $data ); 
+    }
+
+    public function obtenerVideosTodosAction( Request $request ){
+        
+        $GlobalFunctions    = $this->get(GlobalFunctions::class);
+        $jwt_auth           = $this->get( JwtAuth::class);
+        $token              = $request->get( 'authorization', null ); 
+        //$capitulo           = $request->get( 'capitulo', null ); 
+        $authCheck          = $jwt_auth->checkToken( $token );
+        $arr_videos         = array();
+
+//dump( $token ); die();
+
+        if( $authCheck ){
+            $em              = $this->getDoctrine()->getManager();
+            $dql             = "SELECT a.id, a.nombre, a.url FROM PsumateBundle:Videos a GROUP BY a.id ORDER BY a.id ASC";
             $videosObject    = $em->createQuery($dql);
             $arr_videos      = $videosObject->getResult();
            
@@ -289,6 +339,8 @@ class VideosController extends Controller
         $data               = null;        
         $authCheck          = $jwt_auth->checkToken( $token );
 
+
+
         if( $authCheck ){
 
             if( !$nombre ){ $data = array( 'code'=> '200' ,'status' => 'error', 'msg' => 'no se encuentra nombre' ); }
@@ -300,11 +352,13 @@ class VideosController extends Controller
 
             if( !$data ){
                 $em                 = $this->getDoctrine()->getManager();
-             
+                //dump($imagen); die();
                 $ext                = $imagen->guessExtension();
                 $file_nameImg       = time().".".$ext;
                 $imagen->move("uploads/videos", $file_nameImg);
     
+                //dump('pasa'); die();
+
                 if( $material != null ){
                     $ext                = $material->guessExtension();
                     $file_nameMat       = time().".".$ext;
@@ -334,9 +388,12 @@ class VideosController extends Controller
 
                 //grabo ID de material si esque solo hay 1 material por video sino grabo en material 
                 // lo nuevo y asocio id de video
-                $videos->setIdMaterial( $mate->getId() );
-
-
+                if($file_nameMat != null){
+                    //grabo el ultimo id ingresado en el material de apoyo
+                    $videos->setIdMaterial( $mate->getId() );
+                }else{
+                    $videos->setIdMaterial( 0 );
+                }
 
                 $fechaIngreso = new \DateTime("now");
 

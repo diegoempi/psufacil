@@ -42,6 +42,11 @@ obt_videos:
     path:     /obt/videos
     defaults: { _controller: PsumateBundle:Videos:ObtenerVideos  }    
 
+obt_videos_todos:
+    path:     /obt/videos/todos
+    defaults: { _controller: PsumateBundle:Videos:obtenerVideosTodos  }    
+
+   
 ing_unidades:
     path:     /ing/unidades
     defaults: { _controller: PsumateBundle:Videos:IngresarUnidades  }    
