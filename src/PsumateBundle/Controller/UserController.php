@@ -46,7 +46,7 @@ class UserController extends Controller
         }else{
             $user =  $GlobalFunctions->json( array(
                 'code' => '200',
-                'status' => false,
+                'status' => null,
                 'data'=> 'Rut o Contraseña incorrecta' ) );
         }
 

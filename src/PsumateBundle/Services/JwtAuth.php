@@ -54,12 +54,12 @@ class JwtAuth{
             }
 
         }else{
-            
+            //$data = null;
             $data = array(
                 'code' => '200',
-                'status' => false,
+                'status' => null,
                 'data'=> 'Rut o Contraseña incorrecta'
-            );            
+            );
         }
 
         return $data;
