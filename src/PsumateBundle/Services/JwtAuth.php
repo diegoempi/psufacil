@@ -14,12 +14,13 @@ class JwtAuth{
         $this->key = "holaquetalsoylaclavesecreta12_++34567";
 	}
     
-    public function signup( $rut, $password, $getIdentity){
+    public function signup( $rut, $password, $getIdentity, $dv){
 
         //busco data en BD postgresql por entity manager
         $user = $this->manager->getRepository('PsumateBundle:Usuarios')->findOneBy(array(
             "rut" => $rut,
-            "password" => $password
+            "password" => $password,
+            "dv" => $dv
         ));
 
         //declaro var en false
@@ -37,6 +38,8 @@ class JwtAuth{
                 "email" => $user->getEmail(),
                 "name" => $user->getNombre(),
                 "surname" => $user->getApellido(),
+                "activo" => $user->getActivo(),
+                "role" => $user->getRole(),
                 "iat" => time(),
                 "exp" => time() + (7 * 24 * 60 * 60),
                 'status' => true
@@ -44,8 +47,6 @@ class JwtAuth{
 
             $jwt = JWT::encode($token, $this->key, 'HS256');
             $decoded = JWT::decode( $jwt, $this->key, array('HS256'));
-
-
 
             if( $getIdentity == null ){
                 $data = $jwt;

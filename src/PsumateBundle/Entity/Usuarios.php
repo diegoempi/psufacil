@@ -120,6 +120,48 @@ class Usuarios
      */
     private $activo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_apoderado", type="string", length=250, nullable=false)
+     */
+    private $nombreApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellidos_apoderado", type="string", length=250, nullable=false)
+     */
+    private $apellidosApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_apoderado", type="string", length=250, nullable=false)
+     */
+    private $emailApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono_apoderado", type="string", length=15, nullable=false)
+     */
+    private $telefonoApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", nullable=false)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dv", type="string", nullable=false)
+     */
+    private $dv;
+
 
 
     /**
@@ -466,5 +508,149 @@ class Usuarios
     public function getActivo()
     {
         return $this->activo;
+    }
+
+    /**
+     * Set nombreApoderado
+     *
+     * @param string $nombreApoderado
+     *
+     * @return Usuarios
+     */
+    public function setNombreApoderado($nombreApoderado)
+    {
+        $this->nombreApoderado = $nombreApoderado;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreApoderado
+     *
+     * @return string
+     */
+    public function getNombreApoderado()
+    {
+        return $this->nombreApoderado;
+    }
+
+    /**
+     * Set apellidosApoderado
+     *
+     * @param string $apellidosApoderado
+     *
+     * @return Usuarios
+     */
+    public function setApellidosApoderado($apellidosApoderado)
+    {
+        $this->apellidosApoderado = $apellidosApoderado;
+
+        return $this;
+    }
+
+    /**
+     * Get apellidosApoderado
+     *
+     * @return string
+     */
+    public function getApellidosApoderado()
+    {
+        return $this->apellidosApoderado;
+    }
+
+    /**
+     * Set emailApoderado
+     *
+     * @param string $emailApoderado
+     *
+     * @return Usuarios
+     */
+    public function setEmailApoderado($emailApoderado)
+    {
+        $this->emailApoderado = $emailApoderado;
+
+        return $this;
+    }
+
+    /**
+     * Get emailApoderado
+     *
+     * @return string
+     */
+    public function getEmailApoderado()
+    {
+        return $this->emailApoderado;
+    }
+
+    /**
+     * Set telefonoApoderado
+     *
+     * @param string $telefonoApoderado
+     *
+     * @return Usuarios
+     */
+    public function setTelefonoApoderado($telefonoApoderado)
+    {
+        $this->telefonoApoderado = $telefonoApoderado;
+
+        return $this;
+    }
+
+    /**
+     * Get telefonoApoderado
+     *
+     * @return string
+     */
+    public function getTelefonoApoderado()
+    {
+        return $this->telefonoApoderado;
+    }
+
+    /**
+     * Set telefono
+     *
+     * @param string $telefono
+     *
+     * @return Usuarios
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return string
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set dv
+     *
+     * @param string $dv
+     *
+     * @return Usuarios
+     */
+    public function setDv($dv)
+    {
+        $this->dv = $dv;
+
+        return $this;
+    }
+
+    /**
+     * Get dv
+     *
+     * @return string
+     */
+    public function getDv()
+    {
+        return $this->dv;
     }
 }

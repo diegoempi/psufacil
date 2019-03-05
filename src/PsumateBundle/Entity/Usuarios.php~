@@ -120,6 +120,48 @@ class Usuarios
      */
     private $activo;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre_apoderado", type="string", length=250, nullable=false)
+     */
+    private $nombreApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="apellidos_apoderado", type="string", length=250, nullable=false)
+     */
+    private $apellidosApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_apoderado", type="string", length=250, nullable=false)
+     */
+    private $emailApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono_apoderado", type="string", length=15, nullable=false)
+     */
+    private $telefonoApoderado;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", nullable=false)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="dv", type="string", nullable=false)
+     */
+    private $dv;
+
 
 }
 
