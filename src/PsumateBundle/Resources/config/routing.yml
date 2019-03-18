@@ -57,4 +57,24 @@ ing_capitulos:
 
 ing_videos:
     path:     /ing/videos
-    defaults: { _controller: PsumateBundle:Videos:IngresarVideos  }   
+    defaults: { _controller: PsumateBundle:Videos:IngresarVideos  }
+
+obt_revision:
+    path:   /obt/revision
+    defaults:    { _controller: PsumateBundle:Revision:ObtenerRevision }
+
+obt_lista_revision:
+    path:   /obt/revision/lista/
+    defaults:    { _controller: PsumateBundle:Revision:ObtenerListaRevision }
+
+obt_detalle_revision:
+    path:   /obt/revision/detalle/
+    defaults:    { _controller: PsumateBundle:Revision:ObtenerDetalleRevision }
+
+obt_adm_capitulos:
+    path:     /obt/adm/capitulos
+    defaults: { _controller: PsumateBundle:Videos:ObtenerAdmCapitulos  }
+
+obt_adm_unidades:
+    path:     /obt/adm/unidades
+    defaults: { _controller: PsumateBundle:Videos:ObtenerAdmUnidades  }

@@ -38,7 +38,7 @@ class JwtAuth{
                 "email" => $user->getEmail(),
                 "name" => $user->getNombre(),
                 "surname" => $user->getApellido(),
-                "activo" => $user->getActivo(),
+                "usr_suscripcion" => $user->getUsrSuscripcion(),
                 "role" => $user->getRole(),
                 "iat" => time(),
                 "exp" => time() + (7 * 24 * 60 * 60),
@@ -66,7 +66,7 @@ class JwtAuth{
         return $data;
     }
 
-    public function checkToken( $jwt, $getIdentity = false){
+    public function checkToken( $jwt, $getIdentity){
 
         $auth = false;
 

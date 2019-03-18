@@ -5,12 +5,12 @@ namespace PsumateBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Unidades
+ * Revision
  *
- * @ORM\Table(name="unidades")
+ * @ORM\Table(name="revision")
  * @ORM\Entity
  */
-class Unidades
+class Revision
 {
     /**
      * @var integer
@@ -18,7 +18,7 @@ class Unidades
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="unidades_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="revision_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -32,23 +32,16 @@ class Unidades
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="text", nullable=false)
+     * @ORM\Column(name="descripcion", type="string", nullable=false)
      */
     private $descripcion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=300, nullable=false)
+     * @ORM\Column(name="imagen", type="string", nullable=false)
      */
-    private $url;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
-     */
-    private $fechaDeCreacion;
+    private $imagen;
 
     /**
      * @var integer
@@ -74,7 +67,7 @@ class Unidades
      *
      * @param string $nombre
      *
-     * @return Unidades
+     * @return Revision
      */
     public function setNombre($nombre)
     {
@@ -98,7 +91,7 @@ class Unidades
      *
      * @param string $descripcion
      *
-     * @return Unidades
+     * @return Revision
      */
     public function setDescripcion($descripcion)
     {
@@ -118,51 +111,27 @@ class Unidades
     }
 
     /**
-     * Set url
+     * Set imagen
      *
-     * @param string $url
+     * @param string $imagen
      *
-     * @return Unidades
+     * @return Revision
      */
-    public function setUrl($url)
+    public function setImagen($imagen)
     {
-        $this->url = $url;
+        $this->imagen = $imagen;
 
         return $this;
     }
 
     /**
-     * Get url
+     * Get imagen
      *
      * @return string
      */
-    public function getUrl()
+    public function getImagen()
     {
-        return $this->url;
-    }
-
-    /**
-     * Set fechaDeCreacion
-     *
-     * @param \DateTime $fechaDeCreacion
-     *
-     * @return Unidades
-     */
-    public function setFechaDeCreacion($fechaDeCreacion)
-    {
-        $this->fechaDeCreacion = $fechaDeCreacion;
-
-        return $this;
-    }
-
-    /**
-     * Get fechaDeCreacion
-     *
-     * @return \DateTime
-     */
-    public function getFechaDeCreacion()
-    {
-        return $this->fechaDeCreacion;
+        return $this->imagen;
     }
 
     /**
@@ -170,7 +139,7 @@ class Unidades
      *
      * @param integer $usrSuscripcion
      *
-     * @return Unidades
+     * @return Revision
      */
     public function setUsrSuscripcion($usrSuscripcion)
     {

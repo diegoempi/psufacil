@@ -162,6 +162,13 @@ class Usuarios
      */
     private $dv;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
+     */
+    private $usrSuscripcion;
+
 
 
     /**
@@ -652,5 +659,29 @@ class Usuarios
     public function getDv()
     {
         return $this->dv;
+    }
+
+    /**
+     * Set usrSuscripcion
+     *
+     * @param integer $usrSuscripcion
+     *
+     * @return Usuarios
+     */
+    public function setUsrSuscripcion($usrSuscripcion)
+    {
+        $this->usrSuscripcion = $usrSuscripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get usrSuscripcion
+     *
+     * @return integer
+     */
+    public function getUsrSuscripcion()
+    {
+        return $this->usrSuscripcion;
     }
 }

@@ -86,7 +86,6 @@ class UserController extends Controller
             $rut                        = str_replace( '.','', $rut );
             $rut                        = $rut.'-'.$dv;
             $rut_valido                 = valida_rut($rut);
-
            
 
             $telefono                   = ( isset( $params->telefono )) ? $params->telefono : null;
@@ -162,7 +161,7 @@ class UserController extends Controller
                 $user->setColegio( $colegio );
                 $user->setFechaDeNacimiento( $fecha_de_nacimiento );
                 $user->setTelefono( $telefono );
-
+                $user->setUsrSuscripcion( 0 );
                 $fechaIngreso    = new \DateTime("now");
                 $expiracion     = new \DateTime("now");
                 $expiracion->modify('+1 year');

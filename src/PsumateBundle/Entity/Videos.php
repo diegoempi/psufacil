@@ -53,13 +53,6 @@ class Videos
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_material", type="integer", nullable=false)
-     */
-    private $idMaterial;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="id_capitulo", type="integer", nullable=false)
      */
     private $idCapitulo;
@@ -72,11 +65,11 @@ class Videos
     private $idUnidad;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="url_imagen", type="string", nullable=false)
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
      */
-    private $urlImagen;
+    private $usrSuscripcion;
 
 
 
@@ -187,30 +180,6 @@ class Videos
     }
 
     /**
-     * Set idMaterial
-     *
-     * @param integer $idMaterial
-     *
-     * @return Videos
-     */
-    public function setIdMaterial($idMaterial)
-    {
-        $this->idMaterial = $idMaterial;
-
-        return $this;
-    }
-
-    /**
-     * Get idMaterial
-     *
-     * @return integer
-     */
-    public function getIdMaterial()
-    {
-        return $this->idMaterial;
-    }
-
-    /**
      * Set idCapitulo
      *
      * @param integer $idCapitulo
@@ -259,26 +228,26 @@ class Videos
     }
 
     /**
-     * Set urlImagen
+     * Set usrSuscripcion
      *
-     * @param string $urlImagen
+     * @param integer $usrSuscripcion
      *
      * @return Videos
      */
-    public function setUrlImagen($urlImagen)
+    public function setUsrSuscripcion($usrSuscripcion)
     {
-        $this->urlImagen = $urlImagen;
+        $this->usrSuscripcion = $usrSuscripcion;
 
         return $this;
     }
 
     /**
-     * Get urlImagen
+     * Get usrSuscripcion
      *
-     * @return string
+     * @return integer
      */
-    public function getUrlImagen()
+    public function getUsrSuscripcion()
     {
-        return $this->urlImagen;
+        return $this->usrSuscripcion;
     }
 }

@@ -5,12 +5,12 @@ namespace PsumateBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Unidades
+ * Revision
  *
- * @ORM\Table(name="unidades")
+ * @ORM\Table(name="revision")
  * @ORM\Entity
  */
-class Unidades
+class Revision
 {
     /**
      * @var integer
@@ -18,7 +18,7 @@ class Unidades
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="unidades_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="revision_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -32,23 +32,16 @@ class Unidades
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="text", nullable=false)
+     * @ORM\Column(name="descripcion", type="string", nullable=false)
      */
     private $descripcion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", length=300, nullable=false)
+     * @ORM\Column(name="imagen", type="string", nullable=false)
      */
-    private $url;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
-     */
-    private $fechaDeCreacion;
+    private $imagen;
 
     /**
      * @var integer

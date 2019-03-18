@@ -53,13 +53,6 @@ class Videos
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_material", type="integer", nullable=false)
-     */
-    private $idMaterial;
-
-    /**
-     * @var integer
-     *
      * @ORM\Column(name="id_capitulo", type="integer", nullable=false)
      */
     private $idCapitulo;
@@ -72,11 +65,11 @@ class Videos
     private $idUnidad;
 
     /**
-     * @var string
+     * @var integer
      *
-     * @ORM\Column(name="url_imagen", type="string", nullable=false)
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
      */
-    private $urlImagen;
+    private $usrSuscripcion;
 
 
 }

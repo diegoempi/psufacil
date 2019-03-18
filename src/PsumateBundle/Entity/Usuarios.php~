@@ -162,6 +162,13 @@ class Usuarios
      */
     private $dv;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
+     */
+    private $usrSuscripcion;
+
 
 }
 

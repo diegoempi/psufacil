@@ -1,0 +1,62 @@
+<?php
+
+namespace PsumateBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * RevisionDetalle
+ *
+ * @ORM\Table(name="revision_detalle")
+ * @ORM\Entity
+ */
+class RevisionDetalle
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="SEQUENCE")
+     * @ORM\SequenceGenerator(sequenceName="revision_detalle_id_seq", allocationSize=1, initialValue=1)
+     */
+    private $id;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_revision", type="integer", nullable=true)
+     */
+    private $idRevision;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_lista", type="integer", nullable=true)
+     */
+    private $idLista;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_usuario", type="integer", nullable=true)
+     */
+    private $idUsuario;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="respuestas", type="string", nullable=true)
+     */
+    private $respuestas;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_registro", type="datetime", nullable=true)
+     */
+    private $fechaRegistro;
+
+
+}
+

@@ -32,30 +32,37 @@ class Capitulos
     /**
      * @var string
      *
-     * @ORM\Column(name="nombre", type="string", length=50, nullable=true)
+     * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
      */
     private $nombre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="url", type="string", nullable=true)
+     * @ORM\Column(name="url", type="string", nullable=false)
      */
     private $url;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=true)
+     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
      */
     private $fechaDeCreacion;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descripcion", type="text", nullable=true)
+     * @ORM\Column(name="descripcion", type="text", nullable=false)
      */
     private $descripcion;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
+     */
+    private $usrSuscripcion;
 
 
 }
