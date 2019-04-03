@@ -78,3 +78,27 @@ obt_adm_capitulos:
 obt_adm_unidades:
     path:     /obt/adm/unidades
     defaults: { _controller: PsumateBundle:Videos:ObtenerAdmUnidades  }
+
+ing_adm_unidades:
+    path:     /ing/adm/unidades
+    defaults: { _controller: PsumateBundle:Revision:IngresarRevisionUnidad  }
+
+obt_adm_revision_lista:
+    path:     /obt/adm/revision/listas
+    defaults: { _controller: PsumateBundle:Revision:ObtenerAdmRevisionLista  }
+
+ing_adm_revision_listas:
+    path:     /ing/adm/revision/listas
+    defaults: { _controller: PsumateBundle:Revision:IngresarRevisionLista  }
+    
+obt_adm_revision_list:
+    path:     /obt/adm/revision/list
+    defaults: { _controller: PsumateBundle:Revision:ObtenerAdmRevisionListas  }
+
+ing_adm_revision:
+    path:     /ing/adm/revision
+    defaults: { _controller: PsumateBundle:Revision:IngresarRevision  }
+
+ing_revision:
+    path:     /ing/revision
+    defaults: { _controller: PsumateBundle:Revision:IngresarRevisionAlumno  }

@@ -51,5 +51,110 @@ class Revision
     private $usrSuscripcion;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nombre
+     *
+     * @param string $nombre
+     *
+     * @return Revision
+     */
+    public function setNombre($nombre)
+    {
+        $this->nombre = $nombre;
+
+        return $this;
+    }
+
+    /**
+     * Get nombre
+     *
+     * @return string
+     */
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    /**
+     * Set descripcion
+     *
+     * @param string $descripcion
+     *
+     * @return Revision
+     */
+    public function setDescripcion($descripcion)
+    {
+        $this->descripcion = $descripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get descripcion
+     *
+     * @return string
+     */
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    /**
+     * Set imagen
+     *
+     * @param string $imagen
+     *
+     * @return Revision
+     */
+    public function setImagen($imagen)
+    {
+        $this->imagen = $imagen;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen
+     *
+     * @return string
+     */
+    public function getImagen()
+    {
+        return $this->imagen;
+    }
+
+    /**
+     * Set usrSuscripcion
+     *
+     * @param integer $usrSuscripcion
+     *
+     * @return Revision
+     */
+    public function setUsrSuscripcion($usrSuscripcion)
+    {
+        $this->usrSuscripcion = $usrSuscripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get usrSuscripcion
+     *
+     * @return integer
+     */
+    public function getUsrSuscripcion()
+    {
+        return $this->usrSuscripcion;
+    }
+}

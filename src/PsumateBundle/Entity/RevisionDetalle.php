@@ -25,37 +25,44 @@ class RevisionDetalle
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_revision", type="integer", nullable=true)
+     * @ORM\Column(name="id_revision", type="integer", nullable=false)
      */
     private $idRevision;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_lista", type="integer", nullable=true)
+     * @ORM\Column(name="id_lista", type="integer", nullable=false)
      */
     private $idLista;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_usuario", type="integer", nullable=true)
+     * @ORM\Column(name="id_usuario", type="integer", nullable=false)
      */
     private $idUsuario;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="respuestas", type="string", nullable=true)
+     * @ORM\Column(name="respuestas", type="string", nullable=false)
      */
     private $respuestas;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="fecha_registro", type="datetime", nullable=true)
+     * @ORM\Column(name="fecha_registro", type="datetime", nullable=false)
      */
     private $fechaRegistro;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
+     */
+    private $usrSuscripcion;
 
 
 
@@ -187,5 +194,29 @@ class RevisionDetalle
     public function getFechaRegistro()
     {
         return $this->fechaRegistro;
+    }
+
+    /**
+     * Set usrSuscripcion
+     *
+     * @param integer $usrSuscripcion
+     *
+     * @return RevisionDetalle
+     */
+    public function setUsrSuscripcion($usrSuscripcion)
+    {
+        $this->usrSuscripcion = $usrSuscripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get usrSuscripcion
+     *
+     * @return integer
+     */
+    public function getUsrSuscripcion()
+    {
+        return $this->usrSuscripcion;
     }
 }

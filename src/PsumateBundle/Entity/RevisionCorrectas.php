@@ -25,9 +25,9 @@ class RevisionCorrectas
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_revision", type="integer", nullable=false)
+     * @ORM\Column(name="id_unidad", type="integer", nullable=false)
      */
-    private $idRevision;
+    private $idUnidad;
 
     /**
      * @var integer
@@ -50,6 +50,20 @@ class RevisionCorrectas
      */
     private $respuestaCorrecta;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
+     */
+    private $usrSuscripcion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_ingreso", type="datetime", nullable=false)
+     */
+    private $fechaDeIngreso;
+
 
 
     /**
@@ -63,27 +77,27 @@ class RevisionCorrectas
     }
 
     /**
-     * Set idRevision
+     * Set idUnidad
      *
-     * @param integer $idRevision
+     * @param integer $idUnidad
      *
      * @return RevisionCorrectas
      */
-    public function setIdRevision($idRevision)
+    public function setIdUnidad($idUnidad)
     {
-        $this->idRevision = $idRevision;
+        $this->idUnidad = $idUnidad;
 
         return $this;
     }
 
     /**
-     * Get idRevision
+     * Get idUnidad
      *
      * @return integer
      */
-    public function getIdRevision()
+    public function getIdUnidad()
     {
-        return $this->idRevision;
+        return $this->idUnidad;
     }
 
     /**
@@ -156,5 +170,53 @@ class RevisionCorrectas
     public function getRespuestaCorrecta()
     {
         return $this->respuestaCorrecta;
+    }
+
+    /**
+     * Set usrSuscripcion
+     *
+     * @param integer $usrSuscripcion
+     *
+     * @return RevisionCorrectas
+     */
+    public function setUsrSuscripcion($usrSuscripcion)
+    {
+        $this->usrSuscripcion = $usrSuscripcion;
+
+        return $this;
+    }
+
+    /**
+     * Get usrSuscripcion
+     *
+     * @return integer
+     */
+    public function getUsrSuscripcion()
+    {
+        return $this->usrSuscripcion;
+    }
+
+    /**
+     * Set fechaDeIngreso
+     *
+     * @param \DateTime $fechaDeIngreso
+     *
+     * @return RevisionCorrectas
+     */
+    public function setFechaDeIngreso($fechaDeIngreso)
+    {
+        $this->fechaDeIngreso = $fechaDeIngreso;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaDeIngreso
+     *
+     * @return \DateTime
+     */
+    public function getFechaDeIngreso()
+    {
+        return $this->fechaDeIngreso;
     }
 }

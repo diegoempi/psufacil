@@ -420,6 +420,7 @@ class VideosController extends Controller
                 $em                 = $this->getDoctrine()->getManager();
                 $ext                = $imagen->guessExtension();
                 $file_name          = time().".".$ext;
+                //dump($file_name); die();
                 $imagen->move("uploads/capitulos", $file_name);
     
                 //grabo en bd la nueva unidad creada

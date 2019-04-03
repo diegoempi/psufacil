@@ -25,9 +25,9 @@ class RevisionCorrectas
     /**
      * @var integer
      *
-     * @ORM\Column(name="id_revision", type="integer", nullable=false)
+     * @ORM\Column(name="id_unidad", type="integer", nullable=false)
      */
-    private $idRevision;
+    private $idUnidad;
 
     /**
      * @var integer
@@ -49,6 +49,20 @@ class RevisionCorrectas
      * @ORM\Column(name="respuesta_correcta", type="string", nullable=false)
      */
     private $respuestaCorrecta;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
+     */
+    private $usrSuscripcion;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_ingreso", type="datetime", nullable=false)
+     */
+    private $fechaDeIngreso;
 
 
 }
