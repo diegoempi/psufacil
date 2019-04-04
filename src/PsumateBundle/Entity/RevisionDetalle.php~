@@ -64,6 +64,13 @@ class RevisionDetalle
      */
     private $usrSuscripcion;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sum_correctas", type="integer", nullable=false)
+     */
+    private $sumCorrectas;
+
 
 }
 

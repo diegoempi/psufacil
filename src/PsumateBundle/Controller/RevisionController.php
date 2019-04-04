@@ -567,24 +567,58 @@ class RevisionController extends Controller
         $jwt_auth           = $this->get( JwtAuth::class);
         $token              = $request->get( 'authorization', null ); 
         $authCheck          = $jwt_auth->checkToken( $token, null );
-
+        $identity           = $jwt_auth->checkToken( $token, true );
         //obtengo vars
         $unidad             = $request->get( 'unidad', null );
         $lista              = $request->get( 'lista', null );
         $respuestas         = $request->get( 'respuestas', null );
         $suscripcion        = $request->get( 'usr_suscripcion', null );
         $usuario            = $request->get( 'id_usuario', null );
-        
-//        dump( $authCheck  );
-//        dump( $respuestas  );
-//        die();
 
         if( $authCheck ){
 
-            $em             = $this->getDoctrine()->getManager();      
-            $revision      = new RevisionDetalle();
+            
+            $em             = $this->getDoctrine()->getManager();   
+
+            //traigo las correctas del server antes de grabar 
+            $dql    = "SELECT a.id, a.pregunta, a.respuestaCorrecta, '' as respuesta, 'false' as correcta
+                    FROM PsumateBundle:RevisionCorrectas a 
+                    WHERE a.idUnidad = $unidad 
+                    AND a.idLista = $lista 
+                    AND a.usrSuscripcion = $identity->usr_suscripcion 
+                    GROUP BY a.id 
+                    ORDER BY a.id 
+                    ASC";
+
+            $revisionObject  = $em->createQuery($dql);
+            $arrRevisionDetalle   = $revisionObject->getResult();  
+
+
+            $idx                = 0;
+            $countCorrectas     = 0;
+            $arrayRes           = explode("|", $respuestas);
+   
+            foreach ($arrRevisionDetalle as $key => $value) {
+
+                if($arrayRes[$idx]){
+                    $arrRevisionDetalle[$idx]['respuesta'] = $arrayRes[$idx];                  
+
+                    if( $arrRevisionDetalle[$idx]['respuesta'] != $arrRevisionDetalle[$idx]['respuestaCorrecta'] ){
+                        $arrRevisionDetalle[$idx]['correcta'] = false;
+                    }else{
+                        $arrRevisionDetalle[$idx]['correcta'] = true;
+                        $countCorrectas = $countCorrectas + 1 ;
+                    }
+                }else{
+                    $arrRevisionDetalle[$idx]['correcta'] = false;
+                }
+                $idx++;
+            }
+  
+            $revision = new RevisionDetalle();
             $revision->setIdRevision( $unidad );
             $revision->setIdLista( $lista );
+            $revision->setSumCorrectas( $countCorrectas );
                 
             //set index
             $revision->setRespuestas( $respuestas );

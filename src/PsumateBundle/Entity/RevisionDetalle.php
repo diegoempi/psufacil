@@ -64,6 +64,13 @@ class RevisionDetalle
      */
     private $usrSuscripcion;
 
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="sum_correctas", type="integer", nullable=false)
+     */
+    private $sumCorrectas;
+
 
 
     /**
@@ -218,5 +225,29 @@ class RevisionDetalle
     public function getUsrSuscripcion()
     {
         return $this->usrSuscripcion;
+    }
+
+    /**
+     * Set sumCorrectas
+     *
+     * @param integer $sumCorrectas
+     *
+     * @return RevisionDetalle
+     */
+    public function setSumCorrectas($sumCorrectas)
+    {
+        $this->sumCorrectas = $sumCorrectas;
+
+        return $this;
+    }
+
+    /**
+     * Get sumCorrectas
+     *
+     * @return integer
+     */
+    public function getSumCorrectas()
+    {
+        return $this->sumCorrectas;
     }
 }
