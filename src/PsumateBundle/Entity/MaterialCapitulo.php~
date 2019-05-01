@@ -5,12 +5,12 @@ namespace PsumateBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Material
+ * MaterialCapitulo
  *
- * @ORM\Table(name="material")
+ * @ORM\Table(name="material_capitulo")
  * @ORM\Entity
  */
-class Material
+class MaterialCapitulo
 {
     /**
      * @var integer
@@ -18,7 +18,7 @@ class Material
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="material_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="material_capitulo_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -30,18 +30,18 @@ class Material
     private $idUnidades;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_capitulos", type="integer", nullable=false)
-     */
-    private $idCapitulos;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
      */
     private $nombre;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
+     */
+    private $fechaDeCreacion;
 
     /**
      * @var string
@@ -51,25 +51,11 @@ class Material
     private $descripcion;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="url", type="string", length=300, nullable=false)
-     */
-    private $url;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
      */
     private $usrSuscripcion;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
-     */
-    private $fechaDeCreacion;
 
 
 }

@@ -102,3 +102,27 @@ ing_adm_revision:
 ing_revision:
     path:     /ing/revision
     defaults: { _controller: PsumateBundle:Revision:IngresarRevisionAlumno  }
+
+ing_adm_mat_unidad:
+    path:     /ing/adm/material/unidad
+    defaults: { _controller: PsumateBundle:Material:IngresarAdmMaterialUnidad  }
+
+obt_adm_mat_unidad:
+    path:     /obt/adm/material/unidad
+    defaults: { _controller: PsumateBundle:Material:ObtenerAdmMaterialUnidad  }
+
+ing_adm_mat_capitulo:
+    path:     /ing/adm/material/capitulo
+    defaults: { _controller: PsumateBundle:Material:IngresarAdmMaterialCapitulo  }
+
+obt_adm_mat_capitulo:
+    path:     /obt/adm/material/capitulo
+    defaults: { _controller: PsumateBundle:Material:ObtenerAdmMaterialCapitulos  }
+
+ing_adm_material:
+    path:     /ing/adm/material
+    defaults: { _controller: PsumateBundle:Material:IngresarAdmMaterial  }
+
+obt_adm_material:
+    path:     /obt/material
+    defaults: { _controller: PsumateBundle:Material:ObtenerMaterial  }

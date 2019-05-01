@@ -5,12 +5,12 @@ namespace PsumateBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Material
+ * MaterialCapitulo
  *
- * @ORM\Table(name="material")
+ * @ORM\Table(name="material_capitulo")
  * @ORM\Entity
  */
-class Material
+class MaterialCapitulo
 {
     /**
      * @var integer
@@ -18,7 +18,7 @@ class Material
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="material_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="material_capitulo_id_seq", allocationSize=1, initialValue=1)
      */
     private $id;
 
@@ -30,18 +30,18 @@ class Material
     private $idUnidades;
 
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_capitulos", type="integer", nullable=false)
-     */
-    private $idCapitulos;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="nombre", type="string", length=50, nullable=false)
      */
     private $nombre;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
+     */
+    private $fechaDeCreacion;
 
     /**
      * @var string
@@ -51,25 +51,11 @@ class Material
     private $descripcion;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="url", type="string", length=300, nullable=false)
-     */
-    private $url;
-
-    /**
      * @var integer
      *
      * @ORM\Column(name="usr_suscripcion", type="integer", nullable=false)
      */
     private $usrSuscripcion;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="fecha_de_creacion", type="datetime", nullable=false)
-     */
-    private $fechaDeCreacion;
 
 
 
@@ -88,7 +74,7 @@ class Material
      *
      * @param integer $idUnidades
      *
-     * @return Material
+     * @return MaterialCapitulo
      */
     public function setIdUnidades($idUnidades)
     {
@@ -108,35 +94,11 @@ class Material
     }
 
     /**
-     * Set idCapitulos
-     *
-     * @param integer $idCapitulos
-     *
-     * @return Material
-     */
-    public function setIdCapitulos($idCapitulos)
-    {
-        $this->idCapitulos = $idCapitulos;
-
-        return $this;
-    }
-
-    /**
-     * Get idCapitulos
-     *
-     * @return integer
-     */
-    public function getIdCapitulos()
-    {
-        return $this->idCapitulos;
-    }
-
-    /**
      * Set nombre
      *
      * @param string $nombre
      *
-     * @return Material
+     * @return MaterialCapitulo
      */
     public function setNombre($nombre)
     {
@@ -156,11 +118,35 @@ class Material
     }
 
     /**
+     * Set fechaDeCreacion
+     *
+     * @param \DateTime $fechaDeCreacion
+     *
+     * @return MaterialCapitulo
+     */
+    public function setFechaDeCreacion($fechaDeCreacion)
+    {
+        $this->fechaDeCreacion = $fechaDeCreacion;
+
+        return $this;
+    }
+
+    /**
+     * Get fechaDeCreacion
+     *
+     * @return \DateTime
+     */
+    public function getFechaDeCreacion()
+    {
+        return $this->fechaDeCreacion;
+    }
+
+    /**
      * Set descripcion
      *
      * @param string $descripcion
      *
-     * @return Material
+     * @return MaterialCapitulo
      */
     public function setDescripcion($descripcion)
     {
@@ -180,35 +166,11 @@ class Material
     }
 
     /**
-     * Set url
-     *
-     * @param string $url
-     *
-     * @return Material
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
      * Set usrSuscripcion
      *
      * @param integer $usrSuscripcion
      *
-     * @return Material
+     * @return MaterialCapitulo
      */
     public function setUsrSuscripcion($usrSuscripcion)
     {
@@ -225,29 +187,5 @@ class Material
     public function getUsrSuscripcion()
     {
         return $this->usrSuscripcion;
-    }
-
-    /**
-     * Set fechaDeCreacion
-     *
-     * @param \DateTime $fechaDeCreacion
-     *
-     * @return Material
-     */
-    public function setFechaDeCreacion($fechaDeCreacion)
-    {
-        $this->fechaDeCreacion = $fechaDeCreacion;
-
-        return $this;
-    }
-
-    /**
-     * Get fechaDeCreacion
-     *
-     * @return \DateTime
-     */
-    public function getFechaDeCreacion()
-    {
-        return $this->fechaDeCreacion;
     }
 }
